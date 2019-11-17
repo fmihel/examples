@@ -20,6 +20,8 @@
 *  `/tsDecor` [Typescript: декораторы](#tsDecor)
 *  `/reactSetup` [React: стартовый проект](#reactSetup) 
 *  `/reactComponent` [React: пример компонентов](#reactComponent) 
+*  `/reactRouter` [React: пример роутера](#reactRouter) 
+*  `/reactRouterBootstrap` [React: пример роутера и интерфейса bootstrap](#reactRouterBootstrap) 
 *  `/phpServer` [Php: пример использования Php/Apache в качестве сервера](#phpServer)
 
 ---
@@ -401,6 +403,13 @@ module.exports = {
 ### reactComponent
 Небольшой пример приложения с использованием компонетов react.
 
+---
+### reactRouter
+Небольшой пример приложения react-router.
+
+---
+### reactRouterBootstrap
+Небольшой пример приложения react-router и интерфейса bootstrap
 
 ---
 ### phpServer

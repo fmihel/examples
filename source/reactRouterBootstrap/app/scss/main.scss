@@ -1,0 +1,13 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+#app{
+    position: absolute;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+    border:1px solid 0;
+    box-sizing: border-box;
+    
+}
