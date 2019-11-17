@@ -1,0 +1,29 @@
+{
+  "name": "manual",
+  "version": "1.0.0",
+  "description": "manual, project init conf and examples",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmihel/manual.git"
+  },
+  "keywords": [
+    "manual",
+    "examples"
+  ],
+  "author": "fmihel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmihel/manual/issues"
+  },
+  "homepage": "https://github.com/fmihel/manual#readme",
+  "dependencies": {
+    "npm": "^6.7.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.4"
+  }
+}
