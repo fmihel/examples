@@ -1,0 +1,15 @@
+.list_item{
+    border:1px solid var(--border);
+    height:var(--size);
+    line-height:var(--size);
+    cursor:pointer;
+}
+.list_item:hover{
+    background: var(--foneHover);
+}
+.list{
+    border:1px solid var(--border);
+    background: var(--foneBtn);
+    z-index: 100;
+    position: relative;
+}

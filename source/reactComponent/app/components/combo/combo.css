@@ -1,0 +1,4 @@
+.combo{
+    max-height: var(--size);
+    border-bottom: 1px solid blue;
+}

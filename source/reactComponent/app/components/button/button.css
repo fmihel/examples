@@ -1,0 +1,15 @@
+.btn{
+    outline: none;
+    background: var(--foneBtn);
+    color:var(--colorBtn);
+    border:1px solid var(--borderBtn);
+    border-radius: 2px;
+    cursor: pointer;
+    height:var(--size);
+    min-width:var(--btnWidth);
+}
+.btn:hover{
+    background:var(--foneBtnHover);
+    color:(var--colorBtnHover);
+}
+

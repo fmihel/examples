@@ -1,0 +1,22 @@
+.edit{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    height:var(--size);
+    
+}
+.edit_label{
+    width:100px;
+    height:var(--size);
+    line-height: var(--size);
+}
+.edit_input{
+    flex: 1 1 auto;
+    height:var(--editHeight);
+    outline: 0px;
+    border:1px solid var(--border);
+
+}

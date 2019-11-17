@@ -1,0 +1,13 @@
+.field{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    height:var(--size);
+}
+.field > div:nth-child(1) {
+    flex: 1 1 auto;
+}
+

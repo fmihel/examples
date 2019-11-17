@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "outDir": "./app/public/",
+      "noImplicitAny": true,
+      "module": "es6",
+      "target": "es6",
+      "jsx": "react",
+      "allowJs": true,
+
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "sourceMap": false,
+
+      "baseUrl": ".",
+      "paths": {
+        "utils/*": [
+          "app/utils/*"
+        ],
+        "log": [
+          "app/utils/log.ts"
+        ]
+      }
+    }
+  }
