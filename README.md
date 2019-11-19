@@ -20,7 +20,8 @@
 *  `/tsDecor` [Typescript: декораторы](#tsDecor)
 *  `/reactSetup` [React: стартовый проект](#reactSetup) 
 *  `/reactComponent` [React: пример компонентов](#reactComponent) 
-*  `/reactRouter` [React: пример роутера](#reactRouter) 
+*  `/reactRouter` [React: пример роутера](#reactRouter)
+*  `/redux` [redux: пример использования менеджера состояний](#redux)
 *  `/reactRouterBootstrap` [React: пример роутера и интерфейса bootstrap](#reactRouterBootstrap) 
 *  `/phpServer` [Php: пример использования Php/Apache в качестве сервера](#phpServer)
 
@@ -410,6 +411,10 @@ module.exports = {
 ---
 ### reactRouterBootstrap
 Небольшой пример приложения react-router и интерфейса bootstrap
+
+---
+### redux
+Пример использования менеджера состояний ( простой, синхронный)
 
 ---
 ### phpServer
