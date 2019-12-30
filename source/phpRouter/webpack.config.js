@@ -4,6 +4,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { defArg } = require('fmihel-server-lib');
+const ReplaceBefore = require('webpack-plugin-replace');
+const ReplaceAfter = require('replace-in-file-webpack-plugin');
 
 const isDevelopment = defArg('dev');
 
@@ -12,8 +14,25 @@ const SOURCE_PATH = `./${CLIENT_PATH}/`;
 const PUBLIC_PATH = isDevelopment ? './public/' : './dist/';
 const TEMPLATE_PATH = `${SOURCE_PATH}template/`;
 const MEDIA_PATH = `${SOURCE_PATH}media/`;
+const PHP_ROUTER_ADDR = isDevelopment ? 'http://work/examples/source/phpRouter/public/' : '';
+const PHP_VENDOR_REPLACE = { from: '/../vendor/autoload.php', to: '/vendor/autoload.php' };
+
 const PORT = 3000;
 
+const CopyWebpackPluginList = [
+    { from: `${MEDIA_PATH}favicon.ico` },
+];
+if (isDevelopment) {
+    // CopyWebpackPluginList.push({ from: 'server' });
+} else {
+    CopyWebpackPluginList.push({ from: 'server', ignore: ['router.dat'] });
+    if (defArg('full')) {
+        CopyWebpackPluginList.push({ from: 'vendor', to: 'vendor' });
+    } else {
+        CopyWebpackPluginList.push({ from: 'composer.lock' });
+        CopyWebpackPluginList.push({ from: 'composer.json' });
+    }
+}
 module.exports = {
     entry: `${SOURCE_PATH}index.js`,
     output: {
@@ -40,8 +59,8 @@ module.exports = {
             },
         ],
     },
-    mode: isDevelopment ? 'development' : 'production',
-    devtool: 'inline-source-map',
+    mode: (isDevelopment ? 'development' : 'production'),
+    devtool: (isDevelopment ? 'inline-source-map' : ''),
     devServer: {
         contentBase: PUBLIC_PATH,
         port: PORT,
@@ -60,9 +79,24 @@ module.exports = {
             template: `${TEMPLATE_PATH}index.html`,
             filename: './index.html',
         }),
-        new CopyWebpackPlugin([
-            { from: `${MEDIA_PATH}favicon.ico` },
-            { from: 'server' },
-        ]),
+        new CopyWebpackPlugin(CopyWebpackPluginList),
+        new ReplaceBefore({
+
+            exclude: /node_modules/,
+            include: 'router.config.js',
+            values: {
+                PHP_ROUTER_ADDR: isDevelopment ? PHP_ROUTER_ADDR : '',
+
+            },
+
+        }),
+        new ReplaceAfter([{
+            dir: PUBLIC_PATH.substring(2),
+            files: ['index.php'],
+            rules: [{
+                search: PHP_VENDOR_REPLACE.from,
+                replace: PHP_VENDOR_REPLACE.to,
+            }],
+        }]),
     ],
 };

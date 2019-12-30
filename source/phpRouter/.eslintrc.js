@@ -27,7 +27,6 @@ module.exports = {
     },    
     "globals": {
         "$": true
-        
     },
     "rules": {
         'no-console': 'off',
@@ -42,6 +41,7 @@ module.exports = {
         "import/prefer-default-export":'off',
         'import/extensions':'off', 
         'import/no-unresolved':'off',
+        'import/no-extraneous-dependencies':'off',
         "indent": [
             "error",
             4
