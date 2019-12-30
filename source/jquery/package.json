@@ -22,7 +22,7 @@
   "homepage": "https://github.com/fmihel/manual#readme",
   "dependencies": {
     "jquery": "^3.4.0",
-    "npm": "^6.7.0"
+    "npm": "^6.13.4"
   },
   "devDependencies": {
     "express": "^4.16.4",
