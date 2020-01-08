@@ -9,12 +9,11 @@ const ReplaceAfter = require('replace-in-file-webpack-plugin');
 
 const isDevelopment = defArg('dev');
 
-const CLIENT_PATH = 'client';
-const SOURCE_PATH = `./${CLIENT_PATH}/`;
+const SOURCE_PATH = './client/';
 const PUBLIC_PATH = isDevelopment ? './public/' : './dist/';
 const TEMPLATE_PATH = `${SOURCE_PATH}template/`;
 const MEDIA_PATH = `${SOURCE_PATH}media/`;
-const PHP_ROUTER_ADDR = isDevelopment ? 'http://work/examples/source/phpRouter/public/' : '';
+const PHP_ROUTER_ADDR = isDevelopment ? 'http://work/examples/source/phpRouter/server/' : '';
 const PHP_VENDOR_REPLACE = { from: '/../vendor/autoload.php', to: '/vendor/autoload.php' };
 
 const PORT = 3000;
@@ -33,6 +32,42 @@ if (isDevelopment) {
         CopyWebpackPluginList.push({ from: 'composer.json' });
     }
 }
+
+const plugins = [
+    new CleanWebpackPlugin(),
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+    }),
+    new HtmlWebPackPlugin({
+        template: `${TEMPLATE_PATH}index.html`,
+        filename: './index.html',
+    }),
+    new CopyWebpackPlugin(CopyWebpackPluginList),
+    new ReplaceBefore({
+
+        exclude: /node_modules/,
+        include: 'router.config.js',
+        values: {
+            PHP_ROUTER_ADDR,
+
+        },
+    }),
+];
+
+if (!isDevelopment) {
+    plugins.push(
+        new ReplaceAfter([{
+            dir: PUBLIC_PATH.substring(2),
+            files: ['index.php'],
+            rules: [{
+                search: PHP_VENDOR_REPLACE.from,
+                replace: PHP_VENDOR_REPLACE.to,
+            }],
+        }]),
+    );
+}
+
 module.exports = {
     entry: `${SOURCE_PATH}index.js`,
     output: {
@@ -69,34 +104,5 @@ module.exports = {
             'Access-Control-Allow-Origin': '*',
         },
     },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-        }),
-        new HtmlWebPackPlugin({
-            template: `${TEMPLATE_PATH}index.html`,
-            filename: './index.html',
-        }),
-        new CopyWebpackPlugin(CopyWebpackPluginList),
-        new ReplaceBefore({
-
-            exclude: /node_modules/,
-            include: 'router.config.js',
-            values: {
-                PHP_ROUTER_ADDR: isDevelopment ? PHP_ROUTER_ADDR : '',
-
-            },
-
-        }),
-        new ReplaceAfter([{
-            dir: PUBLIC_PATH.substring(2),
-            files: ['index.php'],
-            rules: [{
-                search: PHP_VENDOR_REPLACE.from,
-                replace: PHP_VENDOR_REPLACE.to,
-            }],
-        }]),
-    ],
+    plugins,
 };
