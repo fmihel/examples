@@ -10,11 +10,17 @@ const ReplaceAfter = require('replace-in-file-webpack-plugin');
 const isDevelopment = defArg('dev');
 const includeDebugInfo = defArg('idi');
 
+// Папка к клиентской части приложения (исходники js)
 const SOURCE_PATH = './client/';
+// Папка для конечной сборки
 const PUBLIC_PATH = isDevelopment ? './public/' : './dist/';
+// Папка с шаблонами (index.html)
 const TEMPLATE_PATH = `${SOURCE_PATH}template/`;
+// Папка с медиа файлами
 const MEDIA_PATH = `${SOURCE_PATH}media/`;
+// Путь к корневому файлу роутера (если на )
 const PHP_ROUTER_ADDR = isDevelopment ? 'http://work/examples/source/phpRouter/server/' : '/dist/index.php';
+// Путь к модулям composer 
 const PHP_VENDOR_REPLACE = { from: '/../vendor/autoload.php', to: '/vendor/autoload.php' };
 
 const PORT = 3000;
