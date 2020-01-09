@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "fmihel/php-router",
-            "version": "v1.1.0",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fmihel/php-router.git",
-                "reference": "e38322bfb7f14e67921c67dfe95d6ab714d1fcbe"
+                "reference": "6897caffd475183aee79d34d8f097fd9fb2d9675"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fmihel/php-router/zipball/e38322bfb7f14e67921c67dfe95d6ab714d1fcbe",
-                "reference": "e38322bfb7f14e67921c67dfe95d6ab714d1fcbe",
+                "url": "https://api.github.com/repos/fmihel/php-router/zipball/6897caffd475183aee79d34d8f097fd9fb2d9675",
+                "reference": "6897caffd475183aee79d34d8f097fd9fb2d9675",
                 "shasum": ""
             },
             "require-dev": {
@@ -40,7 +40,7 @@
                 }
             ],
             "description": "php,router",
-            "time": "2019-12-26T13:52:58+00:00"
+            "time": "2020-01-09T06:50:11+00:00"
         }
     ],
     "packages-dev": [],

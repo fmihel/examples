@@ -5,6 +5,7 @@
   "scripts": {
     "build-local": "webpack --dev",
     "build-dist-composer": "webpack",
+    "build-dist-composer-debug": "webpack --idi",
     "build-dist-full": "webpack --full",
     "run-dev-server": "webpack-dev-server --dev"
   },

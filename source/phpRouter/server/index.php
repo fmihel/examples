@@ -4,7 +4,6 @@
     new fmihel\router\Router([
         'add'=>['./mods/'],
         'suspend'=>false,
-        'main'=>false
     ]);
     
 

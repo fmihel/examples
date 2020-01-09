@@ -8,12 +8,13 @@ const ReplaceBefore = require('webpack-plugin-replace');
 const ReplaceAfter = require('replace-in-file-webpack-plugin');
 
 const isDevelopment = defArg('dev');
+const includeDebugInfo = defArg('idi');
 
 const SOURCE_PATH = './client/';
 const PUBLIC_PATH = isDevelopment ? './public/' : './dist/';
 const TEMPLATE_PATH = `${SOURCE_PATH}template/`;
 const MEDIA_PATH = `${SOURCE_PATH}media/`;
-const PHP_ROUTER_ADDR = isDevelopment ? 'http://work/examples/source/phpRouter/server/' : '';
+const PHP_ROUTER_ADDR = isDevelopment ? 'http://work/examples/source/phpRouter/server/' : '/dist/index.php';
 const PHP_VENDOR_REPLACE = { from: '/../vendor/autoload.php', to: '/vendor/autoload.php' };
 
 const PORT = 3000;
@@ -28,7 +29,7 @@ if (isDevelopment) {
     if (defArg('full')) {
         CopyWebpackPluginList.push({ from: 'vendor', to: 'vendor' });
     } else {
-        CopyWebpackPluginList.push({ from: 'composer.lock' });
+        // CopyWebpackPluginList.push({ from: 'composer.lock' });
         CopyWebpackPluginList.push({ from: 'composer.json' });
     }
 }
@@ -94,8 +95,8 @@ module.exports = {
             },
         ],
     },
-    mode: (isDevelopment ? 'development' : 'production'),
-    devtool: (isDevelopment ? 'inline-source-map' : ''),
+    mode: (isDevelopment || includeDebugInfo ? 'development' : 'production'),
+    devtool: (isDevelopment || includeDebugInfo ? 'inline-source-map' : ''),
     devServer: {
         contentBase: PUBLIC_PATH,
         port: PORT,
