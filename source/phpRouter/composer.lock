@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f90802b5e2276be319fe6b2a66b0c499",
+    "content-hash": "77354548b12b2674b82be473cecc71d8",
     "packages": [
         {
-            "name": "fmihel/php-router",
-            "version": "v1.1.2",
+            "name": "fmihel/php-lib",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fmihel/php-router.git",
-                "reference": "6897caffd475183aee79d34d8f097fd9fb2d9675"
+                "url": "https://github.com/fmihel/php-lib.git",
+                "reference": "a4d932bd5d268610af4b8dee40c1f9b4b7e85b71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fmihel/php-router/zipball/6897caffd475183aee79d34d8f097fd9fb2d9675",
-                "reference": "6897caffd475183aee79d34d8f097fd9fb2d9675",
+                "url": "https://api.github.com/repos/fmihel/php-lib/zipball/a4d932bd5d268610af4b8dee40c1f9b4b7e85b71",
+                "reference": "a4d932bd5d268610af4b8dee40c1f9b4b7e85b71",
                 "shasum": ""
             },
             "require-dev": {
@@ -26,7 +26,46 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "fmihel\\router\\": "source/server"
+                    "fmihel\\lib\\": "source"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fmihel",
+                    "email": "fmihel76@gmail.com"
+                }
+            ],
+            "description": "php,lib,library",
+            "time": "2020-01-24T10:00:53+00:00"
+        },
+        {
+            "name": "fmihel/php-router",
+            "version": "v1.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fmihel/php-router.git",
+                "reference": "91ab2bf19b0a3655d4bd93c9a0b0606d35c051da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fmihel/php-router/zipball/91ab2bf19b0a3655d4bd93c9a0b0606d35c051da",
+                "reference": "91ab2bf19b0a3655d4bd93c9a0b0606d35c051da",
+                "shasum": ""
+            },
+            "require": {
+                "fmihel/php-lib": "^0.3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "fmihel\\router\\": "source"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -40,7 +79,7 @@
                 }
             ],
             "description": "php,router",
-            "time": "2020-01-09T06:50:11+00:00"
+            "time": "2020-01-24T10:49:26+00:00"
         }
     ],
     "packages-dev": [],
