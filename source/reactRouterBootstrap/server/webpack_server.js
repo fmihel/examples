@@ -14,6 +14,7 @@ const compiler = webpack(webpackConfig);
 app.use(config.paths, webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
 }));
+app.use(require('webpack-hot-middleware')(compiler));
 
 // Serve the files on port 3000.
 app.listen(config.port, () => {

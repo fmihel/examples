@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServerConfig = require('./server/config');
-const { PageReloadPlugin } = require('page-reload-webpack-plugin');
+//const { PageReloadPlugin } = require('page-reload-webpack-plugin');
 
 const SOURCE_PATH = './app/';
 const PUBLIC_PATH = ServerConfig.public;
@@ -15,7 +15,7 @@ module.exports = {
     entry: `${SOURCE_PATH}index.js`,
     output: {
         path: path.resolve(__dirname, PUBLIC_PATH),
-        filename: '[name].[contenthash].js',
+        filename: '[name].[hash].js',
     },
     resolve: {
         alias: {
@@ -65,6 +65,7 @@ module.exports = {
         contentBase: PUBLIC_PATH,
         port: ServerConfig.port,
         liveReload: true,
+        hot:true,
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -79,6 +80,7 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: `${MEDIA_PATH}favicon.ico` },
         ]),
-        new PageReloadPlugin({port:ServerConfig.port,enable:false}),
+        //new PageReloadPlugin({port:ServerConfig.port,enable:false}),
+        new webpack.HotModuleReplacementPlugin(),
     ],
 };
