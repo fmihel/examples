@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/fmihel/manual#readme",
   "dependencies": {
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "npm": "^6.13.4"
   },
   "devDependencies": {
