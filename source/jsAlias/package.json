@@ -23,7 +23,7 @@
   "homepage": "https://github.com/fmihel/manual#readme",
   "dependencies": {
     "jquery": "^3.4.0",
-    "npm": "^6.13.4"
+    "npm": "^6.14.6"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.6.0",
