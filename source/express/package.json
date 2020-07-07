@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/fmihel/manual#readme",
   "dependencies": {
-    "npm": "^6.13.4"
+    "npm": "^6.14.6"
   },
   "devDependencies": {
     "express": "^4.16.4"
